@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 const CartPage = () => {
-  const cartIsEmpty = true; // در آینده این مقدار باید از سبد خرید واقعی بیاد
+const [cartItems, setCartItems] = useState([]);
+const cartIsEmpty = cartItems.length === 0;
 
   const [form, setForm] = useState({
     fullName: "",
@@ -33,7 +34,7 @@ const CartPage = () => {
         {cartIsEmpty ? (
           <>
             <img
-              src="../image/shoppingcart-image.png"
+              src="../icons/shoppingcart-image.png"
               alt="سبد خرید خالی"
               className="mx-auto w-40 sm:w-48 md:w-60 opacity-60 mb-6"
             />

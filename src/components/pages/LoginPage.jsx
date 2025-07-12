@@ -6,7 +6,29 @@ export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  // تابع اعتبارسنجی نام کاربری
+  const validateUsername = (name) => {
+    const usernameRegex = /^[a-zA-Z]{3,15}$/;
+    return usernameRegex.test(name);
+  };
+
+  // تابع اعتبارسنجی رمز عبور
+  const validatePassword = (pass) => {
+    // حداقل ۸ کاراکتر، حداقل یک حرف بزرگ، یک حرف کوچک و یک عدد
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    return passwordRegex.test(pass);
+  };
+
   const handleLogin = async () => {
+    if (!validateUsername(username)) {
+      alert("نام کاربری باید فقط شامل حروف انگلیسی و بین ۳ تا ۱۵ کاراکتر باشد.");
+      return;
+    }
+    if (!validatePassword(password)) {
+      alert("رمز عبور باید حداقل ۸ کاراکتر، شامل حروف بزرگ، حروف کوچک و عدد باشد.");
+      return;
+    }
+
     try {
       const response = await fetch('http://127.0.0.1:8000/X/api/login/', {
         method: 'POST',
@@ -25,10 +47,9 @@ export default function LoginPage() {
 
       if (data === 'True') {
         alert('ورود موفق بود!');
-        // اگر خواستی ریدایرکت کنی، اینجا می‌تونی استفاده کنی:
-        // navigate('/dashboard');
+        // اینجا می‌تونی ریدایرکت بزنی
       } else if (data === 'false') {
-        alert('نام کاربری یا رمز اشتباهه');
+        alert('نام کاربری یا رمز اشتباه است.');
       } else {
         alert('خطا در اطلاعات ارسالی: ' + JSON.stringify(data));
       }

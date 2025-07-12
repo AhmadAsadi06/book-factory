@@ -4,7 +4,7 @@ function Discounts() {
   return (
     <div className="container mx-auto px-4 py-10 text-gray-800 dark:text-gray-200 font-iranyekan">
       <h1 className="text-2xl md:text-3xl font-bold mb-8 text-[#882E1B] dark:text-orange-400">
-        🎉 تخفیف‌های خرید از ایران‌کتاب
+        🎉 تخفیف‌های خرید از بوک فکتوری
       </h1>
 
       {/* بخش ۱: تخفیف‌های خودکار */}

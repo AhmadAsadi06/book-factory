@@ -4,7 +4,7 @@ function PaymentMethod() {
   return (
     <div className="container mx-auto px-4 py-10 text-gray-800 dark:text-gray-200 font-iranyekan leading-loose">
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-[#882E1B] dark:text-orange-400">
-        شیوه پرداخت در ایران‌کتاب
+        شیوه پرداخت در بوک فکتوری
       </h1>
 
       <section className="mb-8">
